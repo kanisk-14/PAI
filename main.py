@@ -103,10 +103,11 @@ def chat():
                     "role": "user",
                     "content": f"{user_input}\n\nHere is some fresh info from the web:\n{search_results}"
                     })
-    else:
-        print("⚠️  Web search unavailable, answering from memory...")
-        messages.append({"role": "user", "content": user_input})
-
+            else:
+                print("⚠️  Web search unavailable, answering from memory...")
+                messages.append({"role": "user", "content": user_input})
+        else:  
+            
         # Call Groq
         response = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
